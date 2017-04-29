@@ -41,3 +41,9 @@ md-toolbar{
 h3>i{
     padding-right:15px
 }
+h4  >i{
+    padding-right:15px
+}
+md-dialog-content{
+    overflow: hidden;
+}

@@ -108,7 +108,7 @@ angular.module('webApp.musicGenre', [])
         })
     }
 
-//  Get an Genre record from our database.
+//  Get an Genre record details from our database.
     $scope.getGenre = function(ev,genreId){
       console.log(genreId)
       GenreService.getGenre(genreId)

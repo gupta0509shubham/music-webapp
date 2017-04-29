@@ -5,7 +5,11 @@ from rest_framework.renderers import JSONRenderer
 from musicapp.models import MusicTrack,TrackGenre,MusicGenre
 from django.http import HttpResponse
 import logging
+myhandler = logging.StreamHandler()  # writes to stderr
+myformatter = logging.Formatter(fmt='%(levelname)s: %(message)s')
+myhandler.setFormatter(myformatter)
 logger = logging.getLogger()
+logger.addHandler(myhandler)
 
 
 @api_view(['GET'])
@@ -85,3 +89,31 @@ def add_tracks(request):
         logger.error(error)
         error_json = {"msg": "An error occured while fetching tracks records"}
         return HttpResponse(error_json, content_type="application/json")
+
+
+@api_view(['GET'])
+@renderer_classes((JSONRenderer,))
+def get_track(request):
+    try:
+        genre_list = []
+        track_id = request.GET['trackId']
+        track = MusicTrack.objects.get(music_track_id=track_id)
+        genres = TrackGenre.objects.filter(music_track=track_id)
+
+        for genre in genres:
+            genre_list.append({
+                "id": genre.music_genre.music_genre_id,
+                "name": genre.music_genre.name
+            })
+
+        tracks_json = {
+            "id": track.music_track_id,
+            "name": track.title,
+            "rating": track.rating,
+            "genres": genre_list
+        }
+        return HttpResponse(json.dumps(tracks_json, cls=DjangoJSONEncoder), content_type="application/json")
+    except Exception as error:
+        logger.error(error)
+        error_json = {"msg": "An error occured while fetching track record"}
+        return HttpResponse(json.dumps(error_json, cls=DjangoJSONEncoder), content_type="application/json")

@@ -6,6 +6,9 @@ trackServices.service('TrackService', ['$http',  function($http){
         console.log("pageNumber-: "+pageNumber+'pageLimit-: '+pageLimit);
         return $http.get('/tracks?pageNumber='+pageNumber+'&pageLimit='+pageLimit);
     }
+    this.getTrack = function(trackId){
+        return $http.get('/get_track?trackId='+trackId);
+    }
     this.totalTracksAndGenres = function(){
         return $http.get('/total_tracks_genres');
     }

@@ -6,7 +6,12 @@ from musicapp.models import MusicGenre
 from django.http import HttpResponse
 from datetime import datetime
 import logging
+myhandler = logging.StreamHandler()  # writes to stderr
+myformatter = logging.Formatter(fmt='%(levelname)s: %(message)s')
+myhandler.setFormatter(myformatter)
 logger = logging.getLogger()
+logger.addHandler(myhandler)
+
 
 
 @api_view(['GET'])

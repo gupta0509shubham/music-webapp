@@ -1,5 +1,5 @@
 angular.module('webApp.musicTrack', [])
-.controller('MusicTrackCtrl', ['$scope','TrackService','$mdSidenav',function($scope,TrackService,$mdSidenav) {
+.controller('MusicTrackCtrl', ['$scope','TrackService','$mdSidenav','$mdDialog', function($scope,TrackService,$mdSidenav,$mdDialog) {
     console.log("MusicTrackCtrl");
     $scope.currentPage = 0;
     $scope.limit = 5;
@@ -74,5 +74,47 @@ angular.module('webApp.musicTrack', [])
             console.log(error)
         })
     }
+
+//  Get an Track record details from our database.
+    $scope.getTrack = function(ev,trackId){
+      console.log(trackId)
+      TrackService.getTrack(trackId)
+      .then(function(data){
+        console.log(data)
+        var trackResult = data.data
+        console.log(trackResult)
+        var trackDetail = {
+            id: trackResult.id,
+            name: trackResult.name,
+            rating: trackResult.rating,
+            genres: trackResult.genres
+        };
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: '/static/appviews/dialog_track_detail.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          locals: {dataToPass: trackDetail}
+        }).then(function (result) {
+          }, function () {
+            $scope.status = 'You cancelled the dialog.';
+            console.log($scope.status)
+          });
+      },function(error){
+        console.log(error)
+      })
+    }
     $scope.totalTracksAndGenres();
 }]);
+var DialogController = function ($scope, $mdDialog,dataToPass) {
+    console.log(dataToPass)
+    $scope.details = dataToPass
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+  }
