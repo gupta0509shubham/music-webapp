@@ -1,0 +1,96 @@
+<div>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop md-component-id='addTrack'>
+    <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
+    ADD TRACKS MENU
+    </md-subheader>
+    <md-content layout-padding="">
+        <form>
+          <md-input-container>
+            <label for="testInput">Track Name</label>
+            <input id="track-name" ng-model="addDetails.name"  type="text">
+          </md-input-container>
+          <md-input-container>
+            <label for="testInput">Track Rating</label>
+            <input id="track-rating" ng-model="addDetails.rating" type="number" step="1" placeholder="Enter No (1-5)">
+          </md-input-container>
+          <md-input-container>
+          <md-input-container style="width: 200px;">
+            <label>Select Genres</label>
+            <md-select ng-model="addDetails.genres" multiple="">
+              <md-optgroup label="Genres">
+              <md-option ng-repeat="genre in genres" ng-value="genre.id" required>{{genre.name}}</md-option>
+              </md-optgroup>
+            </md-select>
+          </md-input-container>
+            <md-button ng-click="addTrack();closeAdd()" class="md-primary">
+              Save
+            </md-button>
+            <md-button ng-click="closeAdd()" class="md-primary">
+              Close
+            </md-button>
+          </md-input-container>
+        </form>
+    </md-content>
+    </md-sidenav>
+</div>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="jumbotron-heading">Music track</h1>
+
+    </div>
+    <div class="" style="display:inline-block">
+    <a href="" ui-sref="home">
+        <button type="button" class="btn btn-primary custom-btn">
+            <i class="fa fa-home"></i>Home
+        </button>
+    </a>
+    </div>
+    <div class="" style="display:inline-block;float:right">
+        <button type="button" class="btn btn-primary custom-btn" ng-click="toggleAddTrack()">
+            <i class="fa fa-music"></i>Add Track
+        </button>
+    </div>
+    <div>
+        <table st-table="trackData" st-safe-src="tracksData" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="!trackDataLoaded">
+              <td colspan="3">
+                <p class="text-center">
+                  <i class="fa fa-spinner fa-spin"></i>
+                </p>
+              </td>
+            </tr>
+            <tr ng-repeat="row in trackData" ng-if="trackDataLoaded">
+                <td>{{row.title}}</td>
+                <td>
+                    <div ng-repeat="genre in row.genres" style="" class="genre-div">
+                        {{genre.name}}
+                    </div>
+                </td>
+                <td>
+                    <jk-rating-stars max-rating="5" rating="row.rating" read-only="true">
+                    </jk-rating-stars>
+                </td>
+                <td>
+                    <a href="javascript:;" ng-click="toggleTrack(genre.id)">
+                        <i class="fa fa-pencil-square-o icon-size" aria-hidden="true">
+                            <md-tooltip md-direction="bottom">Edit track</md-tooltip>
+                        </i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding-bottom:50px">
+        <cl-paging flex cl-pages="paging.total" cl-steps="5" cl-page-changed="getAllTracks()" cl-align="center center" cl-current-page="paging.current"></cl-paging>
+    </div>
+</div>

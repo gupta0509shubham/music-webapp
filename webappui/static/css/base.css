@@ -1,0 +1,31 @@
+.jumbotron-heading {
+    text-align: center;
+    color: #ffffff !important;
+}
+.jumbotron{
+    background-color: #374457;
+}
+
+.style-div{
+    padding-left: 35%;
+}
+.custom-btn {
+    background-color: #00afa6 !important;
+    border-color: #00afa6 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2.5px !important;
+    font-family: 'Montserrat', 'Open Sans', 'Helvetica Neue', 'Helvetica', 'sans-serif' !important;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+}
+.genre-div{
+    display: inline-block;
+    border: 1px solid #999;
+    padding: 2px 5px;
+}
+.jk-rating-stars-container .star-button.star-on .material-icons {
+    font-size: 25px !important;
+}
+.jk-rating-stars-container .star-button.star-off .material-icons {
+    font-size: 25px !important;
+}

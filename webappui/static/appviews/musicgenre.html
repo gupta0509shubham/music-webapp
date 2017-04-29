@@ -1,0 +1,95 @@
+<div>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop md-component-id='addGenre'>
+    <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
+    ADD GENRES MENU
+    </md-subheader>
+    <md-content layout-padding="">
+        <form>
+          <md-input-container>
+            <label for="testInput">Genre Name</label>
+            <input id="genre-name" ng-model="addDetails.name"  type="text">
+          </md-input-container>
+          <md-input-container>
+            <md-button ng-click="addGenre();closeAdd()" class="md-primary">
+              Save
+            </md-button>
+            <md-button ng-click="closeAdd()" class="md-primary">
+              Close
+            </md-button>
+          </md-input-container>
+        </form>
+    </md-content>
+    </md-sidenav>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop md-component-id='editGenre'>
+    <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
+    ADD GENRES MENU
+    </md-subheader>
+    <md-content layout-padding="">
+        <form>
+          <md-input-container>
+            <label for="testInput">Genre Name</label>
+            <input id="name" ng-model="editDetails.name"  type="text">
+          </md-input-container>
+          <md-input-container>
+            <md-button ng-click="editGenre();closeEdit()" class="md-primary">
+              Save
+            </md-button>
+            <md-button ng-click="closeEdit()" class="md-primary">
+              Close
+            </md-button>
+          </md-input-container>
+        </form>
+    </md-content>
+    </md-sidenav>
+</div>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="jumbotron-heading">Music Genre</h1>
+    </div>
+    <div class="" style="display:inline-block">
+        <a href="" ui-sref="home">
+        <button type="button" class="btn btn-primary custom-btn">
+            <i class="fa fa-music"></i>Home
+        </button>
+        </a>
+    </div>
+    <div class="" style="display:inline-block;float:right">
+        <button type="button" class="btn btn-primary custom-btn" ng-click="toggleAddGenre()">
+            <i class="fa fa-music"></i>Add Genre
+        </button>
+    </div>
+    <div>
+        <table st-table="genreData" st-safe-src="genresData" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="!genreDataLoaded">
+              <td colspan="2">
+                <p class="text-center">
+                  <i class="fa fa-spinner fa-spin"></i>
+                </p>
+              </td>
+            </tr>
+            <tr ng-repeat="row in genreData" ng-if="genreDataLoaded">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td>
+                    <a href="javascript:;" ng-click="toggleEditGenre(row.id)">
+                        <i class="fa fa-pencil-square-o icon-size" aria-hidden="true">
+                            <md-tooltip md-direction="bottom">Edit Genre</md-tooltip>
+                        </i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding-bottom:50px">
+        <cl-paging flex cl-pages="paging.total" cl-steps="5" cl-page-changed="getAllGenres()" cl-align="center center" cl-current-page="paging.current"></cl-paging>
+    </div>
+</div>
