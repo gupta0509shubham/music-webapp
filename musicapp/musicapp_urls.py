@@ -1,6 +1,6 @@
 from django.conf.urls import url
 import views
-from musicapp.controllers import track,genre
+from musicapp.controllers import track, genre
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),

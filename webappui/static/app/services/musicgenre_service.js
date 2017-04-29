@@ -9,6 +9,9 @@ genreServices.service('GenreService', ['$http',  function($http){
     this.totalGenres = function(){
         return $http.get('/total_genres');
     }
+    this.getGenre = function(genreId){
+        return $http.get('/get_genre?genreId='+genreId);
+    }
     this.addGenre = function(addDetails){
         return $http.post('/add_genres/',{
             addDetails : addDetails

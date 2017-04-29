@@ -29,3 +29,15 @@
 .jk-rating-stars-container .star-button.star-off .material-icons {
     font-size: 25px !important;
 }
+tr.ng-scope:focus{
+    outline: none;
+}
+.genre-detail{
+    width: 25%;
+}
+md-toolbar{
+    height:0px;
+}
+h3>i{
+    padding-right:15px
+}

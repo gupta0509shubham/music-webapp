@@ -103,11 +103,11 @@ def edit_genres(request):
         return HttpResponse(error_json, content_type="application/json")
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def get_genre(request):
     try:
-        genre_id = request.data['genreId']
+        genre_id = request.GET['genreId']
         genre = MusicGenre.objects.get(music_genre_id=genre_id)
         genres_json = {
             "id": genre.music_genre_id,
@@ -117,4 +117,4 @@ def get_genre(request):
     except Exception as error:
         logger.error(error)
         error_json = {"msg": "An error occured while fetching genre record"}
-        return HttpResponse(error_json, content_type="application/json")
+        return HttpResponse(json.dumps(error_json, cls=DjangoJSONEncoder), content_type="application/json")

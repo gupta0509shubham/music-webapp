@@ -75,13 +75,18 @@
                 </p>
               </td>
             </tr>
-            <tr ng-repeat="row in genreData" ng-if="genreDataLoaded">
+            <tr ng-repeat="row in genreData" ng-if="genreDataLoaded" style="cursor:pointer">
                 <td>{{row.id}}</td>
                 <td>{{row.name}}</td>
                 <td>
-                    <a href="javascript:;" ng-click="toggleEditGenre(row.id)">
+                    <a href="javascript:;" ng-click="toggleEditGenre(row.id);$event.stopPropogation()">
                         <i class="fa fa-pencil-square-o icon-size" aria-hidden="true">
                             <md-tooltip md-direction="bottom">Edit Genre</md-tooltip>
+                        </i>
+                    </a>
+                    <a href="javascript:;" ng-click="getGenre(ev,row.id);$event.stopPropogation()">
+                        <i class="fa fa-bars icon-size" aria-hidden="true">
+                            <md-tooltip md-direction="bottom">Genre Details</md-tooltip>
                         </i>
                     </a>
                 </td>

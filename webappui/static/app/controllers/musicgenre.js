@@ -1,7 +1,8 @@
 angular.module('webApp.musicGenre', [])
-.controller('MusicGenreCtrl', ['$scope','GenreService','$mdSidenav', function($scope,GenreService,$mdSidenav) {
+.controller('MusicGenreCtrl', ['$scope','GenreService','$mdSidenav','$mdDialog', function($scope,GenreService,$mdSidenav,$mdDialog) {
     console.log("MusicGenreCtrl");
     $scope.genreDataLoaded = false;
+    $scope.genreDetail = [];
     $scope.genresData = [];
     $scope.currentPage = 0;
     $scope.limit = 5;
@@ -12,7 +13,7 @@ angular.module('webApp.musicGenre', [])
     $scope.paging = {
         current: 1,
     };
-    $scope.toggleAddGenre = function(triggerId) {
+    $scope.toggleAddGenre = function() {
          $scope.addDetails ={
          name:'',
          }
@@ -24,13 +25,17 @@ angular.module('webApp.musicGenre', [])
     };
 
     $scope.toggleEditGenre = function(genreId) {
+        console.log("GENRE ID -: "+genreId)
         $scope.genreId = genreId;
+        console.log(genreId)
         for(var i=0;i<$scope.genresData.length;i++){
-            if($scope.genresData.id=genreId)
+            if($scope.genresData[i].id==genreId)
                 break;
         }
         var index =i;
+        console.log(index)
         $scope.editDetails.name = $scope.genresData[index].name
+        console.log($scope.editDetails.name)
         $mdSidenav('editGenre').toggle();
     };
 
@@ -103,6 +108,45 @@ angular.module('webApp.musicGenre', [])
         })
     }
 
+//  Get an Genre record from our database.
+    $scope.getGenre = function(ev,genreId){
+      console.log(genreId)
+      GenreService.getGenre(genreId)
+      .then(function(data){
+        console.log(data)
+        var genreResult = data.data
+        var genreDetail = {
+            id: genreResult.id,
+            name: genreResult.name
+        };
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: '/static/appviews/dialog_genre_detail.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          locals: {dataToPass: genreDetail}
+        }).then(function (result) {
+          }, function () {
+            $scope.status = 'You cancelled the dialog.';
+            console.log($scope.status)
+          });
+      },function(error){
+        console.log(error)
+      })
+    }
 //  Calling totalGenres() funtion on load of Script.
     $scope.totalGenres();
 }]);
+
+var DialogController = function ($scope, $mdDialog,dataToPass) {
+    console.log(dataToPass)
+    $scope.details = dataToPass
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+  }
