@@ -17,4 +17,10 @@ trackServices.service('TrackService', ['$http',  function($http){
             addDetails : addDetails
         });
     }
+    this.editTrack = function(trackId,editDetails){
+        return $http.post('/edit_track/',{
+            trackId: trackId,
+            editDetails : editDetails
+        });
+    }
 }]);

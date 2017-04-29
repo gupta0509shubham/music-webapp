@@ -86,7 +86,7 @@ def add_genres(request):
 
 @api_view(['POST'])
 @renderer_classes((JSONRenderer,))
-def edit_genres(request):
+def edit_genre(request):
     try:
         updated_at = datetime.now()
         genre_data = request.data['editDetails']
@@ -96,7 +96,8 @@ def edit_genres(request):
         print name
         genre = MusicGenre.objects.get(music_genre_id=genre_id)
         genre.name = name
-        genre.save(update_fields=['name'])
+        genre.updated_at = updated_at
+        genre.save(update_fields=['name', 'updated_at'])
         genres_json = {
             "id": genre.music_genre_id,
             "name": genre.name,

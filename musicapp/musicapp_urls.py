@@ -10,11 +10,12 @@ urlpatterns = [
     url(r'^tracks/$', track.get_tracks, name='get_tracks'),
     url(r'^add_tracks/$', track.add_tracks, name='add_tracks'),
     url(r'^get_track', track.get_track, name='get_track'),
+    url(r'^edit_track', track.edit_track, name='edit_track'),
 
     # Genre Specific URL's
     url(r'^genres/$', genre.get_generes, name='get_genres'),
     url(r'^total_genres/$', genre.total_genres, name='total_genres'),
     url(r'^add_genres/$', genre.add_genres, name='add_genres'),
-    url(r'^edit_genres/$', genre.edit_genres, name='edit_genres'),
+    url(r'^edit_genre/$', genre.edit_genre, name='edit_genres'),
     url(r'^get_genre', genre.get_genre, name='get_genre')
 ]

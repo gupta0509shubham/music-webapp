@@ -93,7 +93,7 @@ angular.module('webApp.musicGenre', [])
 //  Editing an existing Genre in our database.
     $scope.editGenre = function(){
         for(var i=0;i<$scope.genresData.length;i++){
-            if($scope.genresData.id=$scope.genreId)
+            if($scope.genresData[i].id=$scope.genreId)
                 break;
         }
         var index =i;

@@ -1,10 +1,13 @@
 angular.module('webApp.musicTrack', [])
 .controller('MusicTrackCtrl', ['$scope','TrackService','$mdSidenav','$mdDialog', function($scope,TrackService,$mdSidenav,$mdDialog) {
     console.log("MusicTrackCtrl");
+    $scope.trackId;
     $scope.currentPage = 0;
     $scope.limit = 5;
     $scope.genres = []
     $scope.addDetails ={
+    }
+    $scope.editDetails ={
     }
     $scope.paging = {
         current: 1,
@@ -19,7 +22,18 @@ angular.module('webApp.musicTrack', [])
     $scope.closeAdd = function () {
         $mdSidenav('addTrack').close()
     };
-    $scope.toggleEditTrack = function(triggerId) {
+    $scope.toggleEditTrack = function(trackId) {
+        $scope.trackId = trackId;
+        console.log(trackId)
+        for(var i=0;i<$scope.tracksData.length;i++){
+            if($scope.tracksData[i].id==trackId)
+                break;
+        }
+        var index =i;
+        console.log(index)
+        $scope.editDetails.name = $scope.tracksData[index].title
+        $scope.editDetails.rating = $scope.tracksData[index].rating
+        console.log($scope.editDetails)
         $mdSidenav('editTrack').toggle();
     };
 
@@ -70,6 +84,8 @@ angular.module('webApp.musicTrack', [])
         TrackService.addTracks($scope.addDetails)
         .then(function(data){
             console.log(data);
+            var count  = data.data.count;
+            $scope.paging.total = Math.ceil(count/$scope.limit);
         },function(error){
             console.log(error)
         })
@@ -104,6 +120,25 @@ angular.module('webApp.musicTrack', [])
       },function(error){
         console.log(error)
       })
+    }
+//  Editing an existing Track in our database.
+    $scope.editTrack = function(){
+        for(var i=0;i<$scope.tracksData.length;i++){
+            if($scope.tracksData[i].id==$scope.trackId)
+                break;
+        }
+        var index =i;
+        console.log()
+        console.log($scope.editDetails)
+        TrackService.editTrack($scope.trackId,$scope.editDetails)
+        .then(function(data){
+            console.log(data);
+            var trackValue = data.data
+            $scope.tracksData[index].title = trackValue.name;
+            $scope.tracksData[index].rating = trackValue.rating;
+        },function(error){
+            console.log(error)
+        })
     }
     $scope.totalTracksAndGenres();
 }]);

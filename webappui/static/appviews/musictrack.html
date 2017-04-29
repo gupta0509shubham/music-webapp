@@ -32,6 +32,31 @@
         </form>
     </md-content>
     </md-sidenav>
+   <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop md-component-id='editTrack'>
+    <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
+    Edit TRACKS MENU
+    </md-subheader>
+    <md-content layout-padding="">
+        <form>
+          <md-input-container>
+            <label for="testInput">Track Name</label>
+            <input id="name" ng-model="editDetails.name"  type="text">
+          </md-input-container>
+          <md-input-container>
+            <label for="testInput">Track Rating</label>
+            <input id="rating" ng-model="editDetails.rating" type="number" step="1" placeholder="Enter No (1-5)">
+          </md-input-container>
+          <md-input-container>
+            <md-button ng-click="editTrack();closeEdit()" class="md-primary">
+              Save
+            </md-button>
+            <md-button ng-click="closeEdit()" class="md-primary">
+              Close
+            </md-button>
+          </md-input-container>
+        </form>
+    </md-content>
+    </md-sidenav>
 </div>
 <div class="container-fluid">
     <div class="jumbotron">
@@ -80,7 +105,7 @@
                     </jk-rating-stars>
                 </td>
                 <td>
-                    <a href="javascript:;" ng-click="toggleTrack(genre.id)">
+                    <a href="javascript:;" ng-click="toggleEditTrack(row.id)">
                         <i class="fa fa-pencil-square-o icon-size" aria-hidden="true">
                             <md-tooltip md-direction="bottom">Edit track</md-tooltip>
                         </i>

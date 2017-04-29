@@ -18,7 +18,7 @@ genreServices.service('GenreService', ['$http',  function($http){
         });
     }
     this.editGenre = function(genreId,editDetails){
-        return $http.post('/edit_genres/',{
+        return $http.post('/edit_genre/',{
             genreId: genreId,
             editDetails : editDetails
         });
