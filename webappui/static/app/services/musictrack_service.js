@@ -9,6 +9,9 @@ trackServices.service('TrackService', ['$http',  function($http){
     this.getTrack = function(trackId){
         return $http.get('/get_track?trackId='+trackId);
     }
+    this.searchTrack = function(text){
+        return $http.get('/search_track?text='+text);
+    }
     this.totalTracksAndGenres = function(){
         return $http.get('/total_tracks_genres');
     }

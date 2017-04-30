@@ -140,6 +140,29 @@ angular.module('webApp.musicTrack', [])
             console.log(error)
         })
     }
+
+// Search the track throughout our database
+
+$scope.searchTrack = function(){
+    $scope.tracksData = [];
+    console.log($scope.searchTerm);
+    TrackService.searchTrack($scope.searchTerm)
+    .then(function(data){
+        console.log(data);
+        var searchedTracks = data.data.data
+        for(i=0;i<searchedTracks.length;i++){
+            $scope.tracksData.push({
+                id: searchedTracks[i].id,
+                title: searchedTracks[i].title,
+                rating: searchedTracks[i].rating,
+                genres: searchedTracks[i].genres
+            })
+        }
+    },function(){
+        console.log(error)
+    })
+}
+
     $scope.totalTracksAndGenres();
 }]);
 var DialogController = function ($scope, $mdDialog,dataToPass) {

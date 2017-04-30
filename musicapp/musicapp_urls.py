@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^add_tracks/$', track.add_tracks, name='add_tracks'),
     url(r'^get_track', track.get_track, name='get_track'),
     url(r'^edit_track', track.edit_track, name='edit_track'),
+    url(r'^search_track', track.search_track, name='search_track'),
 
     # Genre Specific URL's
     url(r'^genres/$', genre.get_generes, name='get_genres'),

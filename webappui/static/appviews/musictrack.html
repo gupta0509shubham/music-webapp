@@ -76,13 +76,18 @@
         </button>
     </div>
     <div>
-        <table st-table="trackData" st-safe-src="tracksData" class="table table-striped">
+        <table st-table="trackData" st-safe-src="tracksData"  class="table table-striped">
             <thead>
             <tr>
                 <th>Title</th>
                 <th>Genre</th>
                 <th>Rating</th>
                 <th>Actions</th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                     <input st-search="title" ng-model="searchTerm" ng-keyup="searchTrack()" class="form-control input-sm" placeholder="Search Track" type="text"/>
+                </th>
             </tr>
             </thead>
             <tbody>

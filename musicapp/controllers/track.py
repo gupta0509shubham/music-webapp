@@ -169,3 +169,43 @@ def edit_track(request):
         logger.error(error)
         error_json = {"msg": "An error occured while editing track records"}
         return HttpResponse(error_json, content_type="application/json")
+
+
+@api_view(['GET'])
+@renderer_classes((JSONRenderer,))
+def search_track(request):
+    try:
+        text = request.GET['text']
+        all_tracks =[]
+        if text:
+            tracks = MusicTrack.objects.filter(title__icontains=text)
+        else:
+            tracks = MusicTrack.objects.all()
+
+        for track in tracks:
+            all_genres = []
+            genres = TrackGenre.objects.filter(music_track=track.music_track_id)
+            for genre in genres:
+                all_genres.append(
+                    {
+                        "id": genre.music_genre_id,
+                        "name": genre.music_genre.name
+                    }
+                )
+            all_tracks.append(
+                {
+                    "id": track.music_track_id,
+                    "title": track.title,
+                    "rating": track.rating,
+                    "genres": all_genres
+                }
+            )
+        tracks_json = {
+            "data": all_tracks,
+            "count": len(all_tracks)
+        }
+        return HttpResponse(json.dumps(tracks_json, cls=DjangoJSONEncoder), content_type="application/json")
+    except Exception as error:
+        logger.error(error)
+        error_json = {"msg": "An error occured while searching track records"}
+        return HttpResponse(error_json, content_type="application/json")

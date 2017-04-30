@@ -1,0 +1,26 @@
+<md-dialog class="genre-detail" aria-label="Track Details">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Track Details</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding>
+        <div class="md-dialog-content">
+            <h3><i class="fa fa-id-card" aria-hidden="true"></i>{{details.id}}</h3>
+            <h3><i class="fa fa-info" aria-hidden="true"></i>{{details.name}}</h3>
+            <h3><i class="fa fa-star-o" aria-hidden="true"></i>{{details.rating}}</h3>
+            <h3>
+                Generes
+                <div ng-repeat="genre in details.genres" style="padding-left:20px">
+                    <h4><i class="fa fa-id-card" aria-hidden="true"></i>{{genre.id}}</h4>
+                    <h4><i class="fa fa-info" aria-hidden="true"></i>{{genre.name}}</h4>
+                </div>
+            </h3>
+        </div>
+    </md-dialog-content>
+</md-dialog>
+

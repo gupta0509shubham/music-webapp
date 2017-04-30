@@ -1,0 +1,18 @@
+<md-dialog class="genre-detail" aria-label="Genre Details">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Genre Details</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()" aria-label="">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding>
+        <div class="md-dialog-content">
+            <h3><i class="fa fa-id-card" aria-hidden="true"></i>{{details.id}}</h3>
+            <h3 ><i class="fa fa-info" aria-hidden="true"></i>{{details.name}}</h3>
+      </div>
+    </md-dialog-content>
+</md-dialog>
+
