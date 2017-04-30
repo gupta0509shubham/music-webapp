@@ -25,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="track.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="track.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicapp/controllers/track.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="426">
@@ -33,6 +33,16 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="musicgenre.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musicgenre.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="musictrack.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musictrack.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musictrack.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="88" column="91" lean-forward="false" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
+            <state relative-caret-position="330">
+              <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
@@ -106,18 +116,18 @@
         <option value="$PROJECT_DIR$/musicapp/models.py" />
         <option value="$PROJECT_DIR$/webappui/static/app/app.js" />
         <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/webappui/static/appviews/musicgenre.html" />
         <option value="$PROJECT_DIR$/webappui/static/appviews/dialog_genre_detail.html" />
         <option value="$PROJECT_DIR$/webappui/static/css/base.css" />
         <option value="$PROJECT_DIR$/webappui/static/appviews/dialog_track_detail.html" />
         <option value="$PROJECT_DIR$/webappui/static/app/services/musicgenre_service.js" />
         <option value="$PROJECT_DIR$/musicapp/controllers/genre.py" />
         <option value="$PROJECT_DIR$/webappui/static/app/controllers/musicgenre.js" />
-        <option value="$PROJECT_DIR$/webappui/static/appviews/musictrack.html" />
         <option value="$PROJECT_DIR$/webappui/static/app/services/musictrack_service.js" />
         <option value="$PROJECT_DIR$/musicapp/musicapp_urls.py" />
         <option value="$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js" />
         <option value="$PROJECT_DIR$/musicapp/controllers/track.py" />
+        <option value="$PROJECT_DIR$/webappui/static/appviews/musicgenre.html" />
+        <option value="$PROJECT_DIR$/webappui/static/appviews/musictrack.html" />
       </list>
     </option>
   </component>
@@ -826,21 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musicgenre.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#1;n#tbody#0;n#table#0;n#div#3;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webappui/static/appviews/dialog_genre_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -903,21 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musictrack.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="88" column="91" lean-forward="false" selection-start-line="88" selection-start-column="91" selection-end-line="88" selection-end-column="91" />
-          <folding>
-            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/musicapp/musicapp_urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -950,6 +930,29 @@
           <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musicgenre.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musictrack.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
