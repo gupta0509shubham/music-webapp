@@ -16,6 +16,7 @@ logger.addHandler(myhandler)
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def total_tracks_and_genres(request):
+    """ Returns total tracks and genres in our database"""
     try:
         tracks = MusicTrack.objects.all()
         count = len(tracks)
@@ -40,6 +41,7 @@ def total_tracks_and_genres(request):
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def get_tracks(request):
+    """ Returns the list of all tracks in our database with their genres. """
     try:
         page_number = int(request.GET['pageNumber'])
         limit = int(request.GET['pageLimit'])
@@ -79,6 +81,7 @@ def get_tracks(request):
 @api_view(['POST'])
 @renderer_classes((JSONRenderer,))
 def add_tracks(request):
+    """ Add the track to our database. """
     try:
         genre_list = []
         created_at = datetime.now()
@@ -118,6 +121,7 @@ def add_tracks(request):
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def get_track(request):
+    """ Returns the details of an track. """
     try:
         genre_list = []
         track_id = request.GET['trackId']
@@ -146,6 +150,7 @@ def get_track(request):
 @api_view(['POST'])
 @renderer_classes((JSONRenderer,))
 def edit_track(request):
+    """ Edit an existing track in our database. """
     try:
         updated_at = datetime.now()
         track_data = request.data['editDetails']
@@ -174,6 +179,7 @@ def edit_track(request):
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def search_track(request):
+    """ Searching the track in our database. """
     try:
         text = request.GET['text']
         all_tracks =[]

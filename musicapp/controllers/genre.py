@@ -13,10 +13,10 @@ logger = logging.getLogger()
 logger.addHandler(myhandler)
 
 
-
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def total_genres(request):
+    """ Calculate the count of total genres in our database. """
     try:
         genres = MusicGenre.objects.all()
         count = len(genres)
@@ -34,6 +34,7 @@ def total_genres(request):
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def get_generes(request):
+    """ Returns the list of all genres in our database. """
     try:
         all_genres =[]
         page_number = int(request.GET['pageNumber'])
@@ -62,6 +63,7 @@ def get_generes(request):
 @api_view(['POST'])
 @renderer_classes((JSONRenderer,))
 def add_genres(request):
+    """ Add an genre to our database. """
     try:
         created_at = datetime.now()
         updated_at = datetime.now()
@@ -87,6 +89,7 @@ def add_genres(request):
 @api_view(['POST'])
 @renderer_classes((JSONRenderer,))
 def edit_genre(request):
+    """ Edit existing genre in our database"""
     try:
         updated_at = datetime.now()
         genre_data = request.data['editDetails']
@@ -112,6 +115,7 @@ def edit_genre(request):
 @api_view(['GET'])
 @renderer_classes((JSONRenderer,))
 def get_genre(request):
+    """ Returns details of an single genre. """
     try:
         genre_id = request.GET['genreId']
         genre = MusicGenre.objects.get(music_genre_id=genre_id)
