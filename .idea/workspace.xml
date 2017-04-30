@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="musictrack.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musictrack.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="218" column="3" lean-forward="true" selection-start-line="218" selection-start-column="3" selection-end-line="218" selection-end-column="3" />
+            <state relative-caret-position="510">
+              <caret line="38" column="68" lean-forward="false" selection-start-line="38" selection-start-column="68" selection-end-line="38" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -28,12 +28,13 @@
       <file leaf-file-name="musictrack.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musictrack.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="199">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="musicgenre.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="musicgenre.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musicgenre.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="112" column="40" lean-forward="false" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+            <state relative-caret-position="517">
+              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,8 +56,8 @@
       <file leaf-file-name="track.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicapp/controllers/track.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="217" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+            <state relative-caret-position="390">
+              <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -79,6 +80,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="739">
               <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/musicapp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -124,11 +135,11 @@
         <option value="$PROJECT_DIR$/Procfile.txt" />
         <option value="$PROJECT_DIR$/webappui/static/appviews/dialog_track_detail.html" />
         <option value="$PROJECT_DIR$/musicapp/controllers/genre.py" />
-        <option value="$PROJECT_DIR$/musicapp/controllers/track.py" />
         <option value="$PROJECT_DIR$/webappui/static/appviews/musicgenre.html" />
-        <option value="$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js" />
-        <option value="$PROJECT_DIR$/webappui/static/appviews/musictrack.html" />
         <option value="$PROJECT_DIR$/webappui/static/app/controllers/musicgenre.js" />
+        <option value="$PROJECT_DIR$/webappui/static/appviews/musictrack.html" />
+        <option value="$PROJECT_DIR$/musicapp/controllers/track.py" />
+        <option value="$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js" />
       </list>
     </option>
   </component>
@@ -464,14 +475,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18477044" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46363637" sideWeight="0.50223964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44431818" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46363637" sideWeight="0.49776036" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -497,7 +508,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -518,6 +529,7 @@
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
@@ -587,6 +599,7 @@
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
@@ -669,6 +682,7 @@
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
@@ -848,16 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/musicapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/musicapp/musicapp_urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -884,14 +888,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musicgenre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webappui/static/appviews/musictrack.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="199">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-input-container#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-subheader#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-input-container#2;n#form#0;n#md-content#0;n#md-sidenav#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#1;n#!!top" expanded="true" />
@@ -899,28 +912,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js">
+    <entry file="file://$PROJECT_DIR$/musicapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="218" column="3" lean-forward="true" selection-start-line="218" selection-start-column="3" selection-end-line="218" selection-end-column="3" />
+        <state relative-caret-position="397">
+          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicapp/controllers/track.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="217" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+        <state relative-caret-position="390">
+          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musicgenre.js">
+    <entry file="file://$PROJECT_DIR$/webappui/static/app/controllers/musictrack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="112" column="40" lean-forward="false" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+        <state relative-caret-position="510">
+          <caret line="38" column="68" lean-forward="false" selection-start-line="38" selection-start-column="68" selection-end-line="38" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -152,14 +152,30 @@ def get_track(request):
 def edit_track(request):
     """ Edit an existing track in our database. """
     try:
+        genre_list =[]
         updated_at = datetime.now()
         track_data = request.data['editDetails']
         track_id = request.data['trackId']
         name = track_data['name']
         rating = track_data['rating']
-        print track_data, track_id
-        print name
+        genres = track_data['genres']
         track = MusicTrack.objects.get(music_track_id=track_id)
+        genres_data = TrackGenre.objects.filter(music_track=track_id)
+        for row in genres_data:
+            row.delete()
+
+        for genre in genres:
+            genre_obj = MusicGenre.objects.get(music_genre_id=genre)
+            track_genre = TrackGenre(music_track=track, music_genre=genre_obj)
+            track_genre.save()
+
+        all_genres = TrackGenre.objects.filter(music_track=track_id)
+        for genre in all_genres:
+            genre_list.append({
+                "id": genre.music_genre.music_genre_id,
+                "name": genre.music_genre.name
+            })
+
         track.title = name
         track.rating = rating
         track.updated_at = updated_at
@@ -167,7 +183,8 @@ def edit_track(request):
         tracks_json = {
             "id": track.music_track_id,
             "name": track.title,
-            "rating": track.rating
+            "rating": track.rating,
+            "genres": genre_list
         }
         return HttpResponse(json.dumps(tracks_json, cls=DjangoJSONEncoder), content_type="application/json")
     except Exception as error:

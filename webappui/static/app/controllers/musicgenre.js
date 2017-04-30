@@ -100,6 +100,10 @@ angular.module('webApp.musicGenre', [])
                 var genreValue = data.data
                 var count = genreValue.count;
                 $scope.paging.total = Math.ceil(count/$scope.limit);
+                   $scope.genresData.unshift({
+                    id: genreValue.id,
+                    name: genreValue.name
+                })
                 $scope.closeAdd()
             },function(error){
                 console.log(error)

@@ -46,6 +46,14 @@
             <label for="testInput">Track Rating</label>
             <input id="rating" ng-model="editDetails.rating" type="number" step="1" placeholder="Enter No (1-5)">
           </md-input-container>
+          <md-input-container style="width: 200px;">
+            <label>Select Genres</label>
+            <md-select ng-model="editDetails.genres" multiple="">
+              <md-optgroup label="Genres">
+              <md-option ng-repeat="genre in genres" ng-value="genre.id" required>{{genre.name}}</md-option>
+              </md-optgroup>
+            </md-select>
+          </md-input-container>
           <md-input-container>
             <md-button ng-click="editTrack()" class="md-primary">
               Save

@@ -35,8 +35,9 @@ angular.module('webApp.musicTrack', [])
         }
         var index =i;
         console.log(index)
-        $scope.editDetails.name = $scope.tracksData[index].title
-        $scope.editDetails.rating = $scope.tracksData[index].rating
+        $scope.editDetails.name = $scope.tracksData[index].title;
+        $scope.editDetails.rating = $scope.tracksData[index].rating;
+        $scope.editDetails.genres = '';
         console.log($scope.editDetails)
         $mdSidenav('editTrack').toggle();
     };
@@ -123,7 +124,15 @@ angular.module('webApp.musicTrack', [])
         .then(function(data){
             console.log(data);
             var count  = data.data.count;
+            var trackValue = data.data
+            console.log(trackValue);
             $scope.paging.total = Math.ceil(count/$scope.limit);
+            $scope.tracksData.unshift({
+                id: trackValue.id,
+                title: trackValue.title,
+                rating: trackValue.rating,
+                genres: trackValue.genres
+            })
             $scope.closeAdd();
         },function(error){
             console.log(error)
@@ -176,6 +185,7 @@ angular.module('webApp.musicTrack', [])
             var trackValue = data.data
             $scope.tracksData[index].title = trackValue.name;
             $scope.tracksData[index].rating = trackValue.rating;
+            $scope.tracksData[index].genres = trackValue.genres;
             $scope.closeEdit();
         },function(error){
             console.log(error)
