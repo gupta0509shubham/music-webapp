@@ -79,16 +79,52 @@ angular.module('webApp.musicTrack', [])
             console.log(error)
         })
     }
-    $scope.addTrack = function(){
+    $scope.addTrack = function(ev){
         console.log($scope.addDetails)
+        if($scope.addDetails['name']== ''){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Enter all Details !')
+                .ariaLabel('Track Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else if($scope.addDetails['rating']== undefined){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Enter all Details !')
+                .ariaLabel('Track Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else if($scope.addDetails['genres']== undefined){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Enter all Details !')
+                .ariaLabel('Track Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else{
         TrackService.addTracks($scope.addDetails)
         .then(function(data){
             console.log(data);
             var count  = data.data.count;
             $scope.paging.total = Math.ceil(count/$scope.limit);
+            $scope.closeAdd();
         },function(error){
             console.log(error)
         })
+        }
     }
 
 //  Get an Track record details from our database.
@@ -136,6 +172,7 @@ angular.module('webApp.musicTrack', [])
             var trackValue = data.data
             $scope.tracksData[index].title = trackValue.name;
             $scope.tracksData[index].rating = trackValue.rating;
+            $scope.closeEdit();
         },function(error){
             console.log(error)
         })
@@ -144,10 +181,10 @@ angular.module('webApp.musicTrack', [])
 // Search the track throughout our database
 
 $scope.searchTrack = function(){
-    $scope.tracksData = [];
     console.log($scope.searchTerm);
     TrackService.searchTrack($scope.searchTerm)
     .then(function(data){
+        $scope.tracksData = [];
         console.log(data);
         var searchedTracks = data.data.data
         for(i=0;i<searchedTracks.length;i++){
