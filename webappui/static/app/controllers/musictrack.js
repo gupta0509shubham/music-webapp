@@ -171,7 +171,7 @@ angular.module('webApp.musicTrack', [])
       })
     }
 //  Editing an existing Track in our database.
-    $scope.editTrack = function(){
+    $scope.editTrack = function(ev){
         for(var i=0;i<$scope.tracksData.length;i++){
             if($scope.tracksData[i].id==$scope.trackId)
                 break;
@@ -179,17 +179,30 @@ angular.module('webApp.musicTrack', [])
         var index =i;
         console.log()
         console.log($scope.editDetails)
-        TrackService.editTrack($scope.trackId,$scope.editDetails)
-        .then(function(data){
-            console.log(data);
-            var trackValue = data.data
-            $scope.tracksData[index].title = trackValue.name;
-            $scope.tracksData[index].rating = trackValue.rating;
-            $scope.tracksData[index].genres = trackValue.genres;
-            $scope.closeEdit();
-        },function(error){
-            console.log(error)
-        })
+        if($scope.editDetails['genres']==''){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Select the track genres !')
+                .ariaLabel('Genre Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else{
+            TrackService.editTrack($scope.trackId,$scope.editDetails)
+            .then(function(data){
+                console.log(data);
+                var trackValue = data.data
+                $scope.tracksData[index].title = trackValue.name;
+                $scope.tracksData[index].rating = trackValue.rating;
+                $scope.tracksData[index].genres = trackValue.genres;
+                $scope.closeEdit();
+            },function(error){
+                console.log(error)
+            })
+        }
     }
 
 // Search the track throughout our database
