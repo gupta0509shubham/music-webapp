@@ -13,6 +13,8 @@ angular.module('webApp.musicGenre', [])
     $scope.paging = {
         current: 1,
     };
+
+// Side navigation functions for add genre
     $scope.toggleAddGenre = function() {
          $scope.addDetails ={
          name:'',
@@ -24,6 +26,7 @@ angular.module('webApp.musicGenre', [])
         $mdSidenav('addGenre').close()
     };
 
+// Side navigation functions for edit genre
     $scope.toggleEditGenre = function(genreId) {
         console.log("GENRE ID -: "+genreId)
         $scope.genreId = genreId;
@@ -77,35 +80,63 @@ angular.module('webApp.musicGenre', [])
     }
 
 //  Adding a new Genre in our database.
-    $scope.addGenre = function(){
+    $scope.addGenre = function(ev){
         console.log($scope.addDetails)
-        GenreService.addGenre($scope.addDetails)
-        .then(function(data){
-            console.log(data);
-            var genreValue = data.data
-            var count = genreValue.count;
-            $scope.paging.total = Math.ceil(count/$scope.limit);
-        },function(error){
-            console.log(error)
-        })
+        if($scope.addDetails['name']==''){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Enter the Genre Name !')
+                .ariaLabel('Genre Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else{
+            GenreService.addGenre($scope.addDetails)
+            .then(function(data){
+                console.log(data);
+                var genreValue = data.data
+                var count = genreValue.count;
+                $scope.paging.total = Math.ceil(count/$scope.limit);
+                $scope.closeAdd()
+            },function(error){
+                console.log(error)
+            })
+        }
     }
 
 //  Editing an existing Genre in our database.
-    $scope.editGenre = function(){
+    $scope.editGenre = function(ev){
         for(var i=0;i<$scope.genresData.length;i++){
             if($scope.genresData[i].id=$scope.genreId)
                 break;
         }
         var index =i;
         console.log($scope.editDetails)
-        GenreService.editGenre($scope.genreId,$scope.editDetails)
-        .then(function(data){
-            console.log(data);
-            var genreValue = data.data
-            $scope.genresData[index].name = genreValue.name;
-        },function(error){
-            console.log(error)
-        })
+        if($scope.editDetails['name']==''){
+          $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Please Enter the Genre Name !')
+                .ariaLabel('Genre Alert Dialog')
+                .ok('OK')
+                .targetEvent(ev)
+          );
+        }
+        else{
+            GenreService.editGenre($scope.genreId,$scope.editDetails)
+            .then(function(data){
+                console.log(data);
+                var genreValue = data.data
+                $scope.genresData[index].name = genreValue.name;
+                $scope.closeEdit();
+            },function(error){
+                console.log(error)
+            })
+        }
     }
 
 //  Get an Genre record details from our database.

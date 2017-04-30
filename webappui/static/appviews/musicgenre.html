@@ -10,7 +10,7 @@
             <input id="genre-name" ng-model="addDetails.name"  type="text">
           </md-input-container>
           <md-input-container>
-            <md-button ng-click="addGenre();closeAdd()" class="md-primary">
+            <md-button ng-click="addGenre(ev)" class="md-primary">
               Add
             </md-button>
             <md-button ng-click="closeAdd()" class="md-primary">
@@ -31,7 +31,7 @@
             <input id="name" ng-model="editDetails.name"  type="text">
           </md-input-container>
           <md-input-container>
-            <md-button ng-click="editGenre();closeEdit()" class="md-primary">
+            <md-button ng-click="editGenre(ev)" class="md-primary">
               Edit
             </md-button>
             <md-button ng-click="closeEdit()" class="md-primary">
