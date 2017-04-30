@@ -84,6 +84,11 @@
                 <th>Rating</th>
                 <th>Actions</th>
             </tr>
+            <tr>
+                <th colspan="4">
+                     <input st-search="title" ng-model="searchTerm" ng-keyup="searchTrack()" class="form-control input-sm" placeholder="Search Track" type="text"/>
+                </th>
+            </tr>
             </thead>
             <tbody>
             <tr ng-if="!trackDataLoaded">
