@@ -12,6 +12,8 @@ angular.module('webApp.musicTrack', [])
     $scope.paging = {
         current: 1,
     };
+
+// Side navigation functions for add track
     $scope.toggleAddTrack = function(triggerId) {
          $scope.addDetails ={
          name:'',
@@ -22,6 +24,8 @@ angular.module('webApp.musicTrack', [])
     $scope.closeAdd = function () {
         $mdSidenav('addTrack').close()
     };
+
+// Side navigation functions for edit track
     $scope.toggleEditTrack = function(trackId) {
         $scope.trackId = trackId;
         console.log(trackId)
