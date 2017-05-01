@@ -56,7 +56,7 @@ def get_tracks(request):
                 all_genres.append(
                     {
                         "id": genre.music_genre_id,
-                        "name": genre.music_genre.name
+                        "label": genre.music_genre.name
                     }
                 )
             all_tracks.append(
@@ -89,11 +89,12 @@ def add_tracks(request):
         track_data = request.data['addDetails']
         name = track_data['name']
         rating = track_data['rating']
-        genres = track_data['genres']
+        genres = request.data['genres']
         track = MusicTrack(title=name, rating=rating, created_at=created_at, updated_at=updated_at)
         track.save()
         for genre in genres:
-            genre_obj = MusicGenre.objects.get(music_genre_id=genre)
+            genre_id = genre['id']
+            genre_obj = MusicGenre.objects.get(music_genre_id=genre_id)
             track_genre = TrackGenre(music_track=track, music_genre=genre_obj)
             track_genre.save()
 
@@ -101,7 +102,7 @@ def add_tracks(request):
         for genre in track_genres:
             genre_list.append({
                 "id": genre.music_genre.music_genre_id,
-                "name": genre.music_genre.name
+                "label": genre.music_genre.name
             })
         total_tracks = len(MusicTrack.objects.all())
         tracks_json = {
@@ -158,14 +159,15 @@ def edit_track(request):
         track_id = request.data['trackId']
         name = track_data['name']
         rating = track_data['rating']
-        genres = track_data['genres']
+        genres = request.data['genres']
         track = MusicTrack.objects.get(music_track_id=track_id)
         genres_data = TrackGenre.objects.filter(music_track=track_id)
         for row in genres_data:
             row.delete()
 
         for genre in genres:
-            genre_obj = MusicGenre.objects.get(music_genre_id=genre)
+            genre_id = genre['id']
+            genre_obj = MusicGenre.objects.get(music_genre_id=genre_id)
             track_genre = TrackGenre(music_track=track, music_genre=genre_obj)
             track_genre.save()
 
@@ -173,7 +175,7 @@ def edit_track(request):
         for genre in all_genres:
             genre_list.append({
                 "id": genre.music_genre.music_genre_id,
-                "name": genre.music_genre.name
+                "label": genre.music_genre.name
             })
 
         track.title = name

@@ -2,6 +2,8 @@ angular.module('webApp.musicTrack', [])
 .controller('MusicTrackCtrl', ['$scope','TrackService','$mdSidenav','$mdDialog', function($scope,TrackService,$mdSidenav,$mdDialog) {
     console.log("MusicTrackCtrl");
     $scope.trackId;
+    $scope.editGenresModel = [];
+    $scope.addGenresModel = [];
     $scope.currentPage = 0;
     $scope.limit = 5;
     $scope.genres = []
@@ -15,8 +17,10 @@ angular.module('webApp.musicTrack', [])
 
 // Side navigation functions for add track
     $scope.toggleAddTrack = function(triggerId) {
+         $scope.addGenresModel = [];
          $scope.addDetails ={
          name:'',
+         rating:0
          }
         $mdSidenav('addTrack').toggle();
     };
@@ -27,18 +31,28 @@ angular.module('webApp.musicTrack', [])
 
 // Side navigation functions for edit track
     $scope.toggleEditTrack = function(trackId) {
+        var indexes = [];
+        var ids = []
+        var index =0;
+        $scope.editGenresModel = [];
         $scope.trackId = trackId;
-        console.log(trackId)
         for(var i=0;i<$scope.tracksData.length;i++){
             if($scope.tracksData[i].id==trackId)
                 break;
         }
-        var index =i;
-        console.log(index)
+        index =i;
         $scope.editDetails.name = $scope.tracksData[index].title;
         $scope.editDetails.rating = $scope.tracksData[index].rating;
-        $scope.editDetails.genres = '';
-        console.log($scope.editDetails)
+        for(var i = 0;i<$scope.tracksData[index].genres.length;i++){
+            ids.push($scope.tracksData[index].genres[i].id)
+        }
+        for(var i=0;i<ids.length;i++){
+            var indx = $scope.genres.map(function(e) { return e.id; }).indexOf(ids[i]);
+            indexes.push(indx)
+        }
+        for (var i=0;i<indexes.length;i++){
+            $scope.editGenresModel.push($scope.genres[indexes[i]])
+        }
         $mdSidenav('editTrack').toggle();
     };
 
@@ -57,7 +71,7 @@ angular.module('webApp.musicTrack', [])
             for(var i=0;i<genres.length;i++){
                 $scope.genres.push({
                     id: genres[i].id,
-                    name: genres[i].name
+                    label: genres[i].name
                 })
             }
             console.log($scope.genres);
@@ -91,36 +105,36 @@ angular.module('webApp.musicTrack', [])
               $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
-                .title('Please Enter all Details !')
+                .title('Please Enter Track Name !')
                 .ariaLabel('Track Alert Dialog')
                 .ok('OK')
                 .targetEvent(ev)
           );
         }
-        else if($scope.addDetails['rating']== undefined){
+        else if($scope.addDetails['rating']== 0){
           $mdDialog.show(
               $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
-                .title('Please Enter all Details !')
+                .title('Please Enter Rating in between 1-5 !')
                 .ariaLabel('Track Alert Dialog')
                 .ok('OK')
                 .targetEvent(ev)
           );
         }
-        else if($scope.addDetails['genres']== undefined){
+        else if($scope.addGenresModel.length == 0){
           $mdDialog.show(
               $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
-                .title('Please Enter all Details !')
+                .title('Please Select Genres for the Track !')
                 .ariaLabel('Track Alert Dialog')
                 .ok('OK')
                 .targetEvent(ev)
           );
         }
         else{
-        TrackService.addTracks($scope.addDetails)
+        TrackService.addTracks($scope.addDetails,$scope.addGenresModel)
         .then(function(data){
             console.log(data);
             var count  = data.data.count;
@@ -179,30 +193,18 @@ angular.module('webApp.musicTrack', [])
         var index =i;
         console.log()
         console.log($scope.editDetails)
-        if($scope.editDetails['genres']==''){
-          $mdDialog.show(
-              $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#popupContainer')))
-                .clickOutsideToClose(true)
-                .title('Please Select the track genres !')
-                .ariaLabel('Genre Alert Dialog')
-                .ok('OK')
-                .targetEvent(ev)
-          );
-        }
-        else{
-            TrackService.editTrack($scope.trackId,$scope.editDetails)
-            .then(function(data){
-                console.log(data);
-                var trackValue = data.data
-                $scope.tracksData[index].title = trackValue.name;
-                $scope.tracksData[index].rating = trackValue.rating;
-                $scope.tracksData[index].genres = trackValue.genres;
-                $scope.closeEdit();
-            },function(error){
-                console.log(error)
-            })
-        }
+        console.log($scope.editGenresModel)
+        TrackService.editTrack($scope.trackId,$scope.editDetails,$scope.editGenresModel)
+        .then(function(data){
+            console.log(data);
+            var trackValue = data.data
+            $scope.tracksData[index].title = trackValue.name;
+            $scope.tracksData[index].rating = trackValue.rating;
+            $scope.tracksData[index].genres = trackValue.genres;
+            $scope.closeEdit();
+        },function(error){
+            console.log(error)
+        })
     }
 
 // Search the track throughout our database

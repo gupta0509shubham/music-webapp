@@ -15,15 +15,17 @@ trackServices.service('TrackService', ['$http',  function($http){
     this.totalTracksAndGenres = function(){
         return $http.get('/total_tracks_genres');
     }
-    this.addTracks = function(addDetails){
+    this.addTracks = function(addDetails,genres){
         return $http.post('/add_tracks/',{
-            addDetails : addDetails
+            addDetails : addDetails,
+            genres: genres
         });
     }
-    this.editTrack = function(trackId,editDetails){
+    this.editTrack = function(trackId,editDetails,genres){
         return $http.post('/edit_track/',{
             trackId: trackId,
-            editDetails : editDetails
+            editDetails : editDetails,
+            genres: genres
         });
     }
 }]);

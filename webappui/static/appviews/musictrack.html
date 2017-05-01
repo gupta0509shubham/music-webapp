@@ -3,7 +3,7 @@
     <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
     ADD TRACKS MENU
     </md-subheader>
-    <md-content layout-padding="">
+    <md-content layout-padding="" style="height:100%">
         <form>
           <md-input-container>
             <label for="testInput">Track Name</label>
@@ -13,14 +13,9 @@
             <label for="testInput">Track Rating</label>
             <input id="track-rating" ng-model="addDetails.rating" type="number" step="1" placeholder="Enter No (1-5)">
           </md-input-container>
-          <md-input-container>
           <md-input-container style="width: 200px;">
-            <label>Select Genres</label>
-            <md-select ng-model="addDetails.genres" multiple="">
-              <md-optgroup label="Genres">
-              <md-option ng-repeat="genre in genres" ng-value="genre.id" required>{{genre.name}}</md-option>
-              </md-optgroup>
-            </md-select>
+            <h6>Select Genres</h6>
+            <div ng-dropdown-multiselect="" options="genres" selected-model="addGenresModel"></div>
           </md-input-container>
             <md-button ng-click="addTrack(ev)" class="md-primary">
               Save
@@ -36,7 +31,7 @@
     <md-subheader class="md-no-sticky" style="line-height: 1.6em;font-size: 16px !important;">
     Edit TRACKS MENU
     </md-subheader>
-    <md-content layout-padding="">
+    <md-content layout-padding="" style="height:100%">
         <form>
           <md-input-container>
             <label for="testInput">Track Name</label>
@@ -47,12 +42,8 @@
             <input id="rating" ng-model="editDetails.rating" type="number" step="1" placeholder="Enter No (1-5)">
           </md-input-container>
           <md-input-container style="width: 200px;">
-            <label>Select Genres</label>
-            <md-select ng-model="editDetails.genres" multiple="">
-              <md-optgroup label="Genres">
-              <md-option ng-repeat="genre in genres" ng-value="genre.id" required>{{genre.name}}</md-option>
-              </md-optgroup>
-            </md-select>
+            <h6>Select Genres</h6>
+            <div ng-dropdown-multiselect="" options="genres" selected-model="editGenresModel"></div>
           </md-input-container>
           <md-input-container>
             <md-button ng-click="editTrack(ev)" class="md-primary">
@@ -110,7 +101,7 @@
                 <td>{{row.title}}</td>
                 <td>
                     <div ng-repeat="genre in row.genres" style="" class="genre-div">
-                        {{genre.name}}
+                        {{genre.label}}
                     </div>
                 </td>
                 <td>

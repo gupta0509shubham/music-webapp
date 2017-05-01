@@ -7,7 +7,8 @@ var webApp = angular.module('webApp', [
     'smart-table',
     'jkAngularRatingStars',
     'cl.paging',
-    'ngMaterial'
+    'ngMaterial',
+    'angularjs-dropdown-multiselect'
     ]);
 
 webApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
