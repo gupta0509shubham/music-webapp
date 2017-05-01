@@ -214,7 +214,7 @@ def search_track(request):
                 all_genres.append(
                     {
                         "id": genre.music_genre_id,
-                        "name": genre.music_genre.name
+                        "label": genre.music_genre.name
                     }
                 )
             all_tracks.append(
