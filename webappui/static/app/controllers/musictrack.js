@@ -111,7 +111,7 @@ angular.module('webApp.musicTrack', [])
                 .targetEvent(ev)
           );
         }
-        else if($scope.addDetails['rating']== 0){
+        else if($scope.addDetails['rating']== 0 || $scope.addDetails['rating'] > 5 || $scope.addDetails['rating'] < 0){
           $mdDialog.show(
               $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
